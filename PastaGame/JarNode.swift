@@ -20,7 +20,7 @@ class JarNode: SKSpriteNode, EventListenerNode, InteractiveNode {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
+        super.touchesEnded(touches, with: event)
         print("jar touched")
         interact()
     }

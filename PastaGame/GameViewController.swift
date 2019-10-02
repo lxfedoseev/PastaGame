@@ -31,7 +31,7 @@ class GameViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let scene = GameScene(fileNamed:"GameScene") {
+        if let scene = GameScene.level() {
             
             gameScene = scene
             
@@ -48,5 +48,9 @@ class GameViewController: UIViewController{
         
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }

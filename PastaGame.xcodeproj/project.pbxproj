@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92A536F23450D4800D5DAD7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A536E23450D4800D5DAD7 /* Utils.swift */; };
+		D92A53712345141500D5DAD7 /* PastaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A53702345141500D5DAD7 /* PastaType.swift */; };
 		D958D1D92343C5B1003EFF00 /* JarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958D1D82343C5B1003EFF00 /* JarNode.swift */; };
 		D978EF2C23427BB4005032B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978EF2B23427BB4005032B7 /* AppDelegate.swift */; };
 		D978EF2E23427BB4005032B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978EF2D23427BB4005032B7 /* SceneDelegate.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D92A536E23450D4800D5DAD7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		D92A53702345141500D5DAD7 /* PastaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaType.swift; sourceTree = "<group>"; };
 		D958D1D82343C5B1003EFF00 /* JarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarNode.swift; sourceTree = "<group>"; };
 		D978EF2823427BB4005032B7 /* PastaGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PastaGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978EF2B23427BB4005032B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				D978EF41234285FB005032B7 /* GameScene.sks */,
 				D978EF4323428688005032B7 /* GameScene.swift */,
 				D958D1D82343C5B1003EFF00 /* JarNode.swift */,
+				D92A536E23450D4800D5DAD7 /* Utils.swift */,
+				D92A53702345141500D5DAD7 /* PastaType.swift */,
 			);
 			path = PastaGame;
 			sourceTree = "<group>";
@@ -150,7 +156,9 @@
 				D978EF4423428688005032B7 /* GameScene.swift in Sources */,
 				D978EF4023428030005032B7 /* GameViewController.swift in Sources */,
 				D978EF3023427BB4005032B7 /* ViewController.swift in Sources */,
+				D92A536F23450D4800D5DAD7 /* Utils.swift in Sources */,
 				D978EF2C23427BB4005032B7 /* AppDelegate.swift in Sources */,
+				D92A53712345141500D5DAD7 /* PastaType.swift in Sources */,
 				D978EF2E23427BB4005032B7 /* SceneDelegate.swift in Sources */,
 				D958D1D92343C5B1003EFF00 /* JarNode.swift in Sources */,
 			);
