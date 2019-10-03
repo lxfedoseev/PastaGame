@@ -34,6 +34,7 @@ class GameViewController: UIViewController{
         if let scene = GameScene.level() {
             
             gameScene = scene
+            GameScene.parentVC = self
             
             let skView = self.view as! SKView
             skView.showsFPS = true
@@ -48,9 +49,9 @@ class GameViewController: UIViewController{
         
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        self.dismiss(animated: true, completion: nil)
-    }
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesEnded(touches, with: event)
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
 }

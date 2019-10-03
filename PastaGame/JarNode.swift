@@ -8,22 +8,11 @@
 
 import SpriteKit
 
-class JarNode: SKSpriteNode, EventListenerNode, InteractiveNode {
+class JarNode: SKSpriteNode, EventListenerNode {
     
     func didMoveToScene(){
         print("jar added to scene")
-        isUserInteractionEnabled = true
+        isUserInteractionEnabled = false
     }
-    
-    func interact() {
-        
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        print("jar touched")
-        interact()
-    }
-    
     
 }
