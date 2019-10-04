@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 import GameKit
+import AVFoundation
 
 protocol EventListenerNode {
     func didMoveToScene()
@@ -102,6 +103,13 @@ class GameScene: SKScene {
     
     func lose() {
         print("lose")
+        
+        let vibrate = SKAction.run() {
+          UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+        }
+        let wait = SKAction.wait(forDuration: 0.1)
+        let sequence = SKAction.sequence([vibrate, wait, vibrate])
+        run(sequence)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
