@@ -14,19 +14,21 @@ class GameViewController: UIViewController{
     var gameScene: GameScene!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        get {
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
             return .portrait
+        } else {
+            return [.portrait, .portraitUpsideDown]
         }
     }
     
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
     
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return .portrait
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
