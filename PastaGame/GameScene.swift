@@ -66,6 +66,15 @@ class GameScene: SKScene {
             let jarNode = childNode(withName: LocalStrings.jarString+"\(i)") as! JarNode
             let jarLabel = jarNode.childNode(withName: LocalStrings.labelString+"\(i)") as! SKLabelNode
             jarLabel.text = jars[i].name
+            
+            // adapt for phones with notches
+            if UIDevice.current.hasNotch &&  UIDevice.current.userInterfaceIdiom == .phone {
+                if i == 0 || i == 1{
+                    jarNode.position.x -= 80
+                }else if i == 2 || i == 3 {
+                    jarNode.position.x += 80
+                }
+            }
         }
         
         pastaNode = childNode(withName: LocalStrings.pastaString) as! SKSpriteNode
