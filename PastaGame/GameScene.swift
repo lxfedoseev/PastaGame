@@ -50,6 +50,7 @@ class GameScene: SKScene {
         static let jarString = "jar"
         static let pastaString = "pasta"
         static let labelString = "label"
+        static let closeString = "close"
     }
 
     override func didMove(to view: SKView) {
@@ -81,6 +82,12 @@ class GameScene: SKScene {
         let newImage = SKTexture(imageNamed: jars[theWinner].onePasta)
         pastaNode.texture = newImage
         pastaNode.size = newImage.size()
+        
+        let closeNode = childNode(withName: LocalStrings.closeString) as! SKSpriteNode
+        let deviceWidth = UIScreen.main.bounds.width
+        let deviceHeight = UIScreen.main.bounds.height
+        let maxAspectRatio: CGFloat = deviceWidth / deviceHeight
+        closeNode.position = CGPoint(x: size.height*maxAspectRatio/2-100, y: size.height/2-100)
     }
     
     class func level() -> GameScene?{
@@ -128,10 +135,14 @@ class GameScene: SKScene {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         
+        
         if let name = touchedNode.name {
+            if name == LocalStrings.pastaString {
+                return
+            }
             if name == LocalStrings.jarString+"\(theWinner)" {
                 win()
-            }else if name == LocalStrings.pastaString {
+            }else if name == LocalStrings.closeString {
                 GameScene.parentVC?.dismiss(animated: true, completion: nil)
             }else {
                 lose()

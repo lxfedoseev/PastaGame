@@ -30,6 +30,10 @@ class GameViewController: UIViewController{
         return .portrait
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
