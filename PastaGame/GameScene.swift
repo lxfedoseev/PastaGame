@@ -84,8 +84,16 @@ class GameScene: SKScene {
         pastaNode.size = newImage.size()
         
         let closeNode = childNode(withName: LocalStrings.closeString) as! SKSpriteNode
-        let deviceWidth = UIScreen.main.bounds.width
-        let deviceHeight = UIScreen.main.bounds.height
+        
+        var deviceWidth: CGFloat = 0.0
+        var deviceHeight: CGFloat = 0.0
+        if UIScreen.main.bounds.width < UIScreen.main.bounds.height{
+            deviceWidth = UIScreen.main.bounds.width
+            deviceHeight = UIScreen.main.bounds.height
+        }else {
+            deviceWidth = UIScreen.main.bounds.height
+            deviceHeight = UIScreen.main.bounds.width
+        }
         let maxAspectRatio: CGFloat = deviceWidth / deviceHeight
         closeNode.position = CGPoint(x: size.height*maxAspectRatio/2-100, y: size.height/2-100)
     }
