@@ -45,6 +45,7 @@ class GameScene: SKScene {
     let jarNumber = 4
     static var parentVC: UIViewController? = nil
     var pastaNode: SKSpriteNode!
+    var labels:[SKLabelNode]!
     
     enum LocalStrings {
         static let jarString = "jar"
@@ -58,6 +59,7 @@ class GameScene: SKScene {
         
         enumerateChildNodes(withName: "//*", using: { node, _ in
             if node.isPaused {node.isPaused = false}
+            
             if let eventListenerNode = node as? EventListenerNode {
                 eventListenerNode.didMoveToScene()
             }
@@ -120,20 +122,31 @@ class GameScene: SKScene {
         view!.presentScene(GameScene.level())
     }
     
-    func win(){
+    func win(name: String){
         print("win")
         newGame()
     }
     
-    func lose() {
+    func lose(name: String) {
         print("lose")
         
-        let vibrate = SKAction.run() {
+        //if label tapped???
+
+
+        let jarNode = childNode(withName: name) as! SKSpriteNode
+
+        let colorRed = SKAction.colorize(with: SKColor.red, colorBlendFactor: 1.0, duration: 0.1)
+        let restoreColor = SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.1)
+        let colorize = SKAction.repeat(SKAction.sequence([colorRed, restoreColor]), count: 2)
+
+        let vibro = SKAction.run() {
           UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         }
         let wait = SKAction.wait(forDuration: 0.1)
-        let sequence = SKAction.sequence([vibrate, wait, vibrate])
-        run(sequence)
+        let vibraite = SKAction.sequence([vibro, wait, vibro])
+        let wrongJar = SKAction.group([colorize, vibraite])
+
+        jarNode.run(wrongJar)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -143,17 +156,16 @@ class GameScene: SKScene {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         
-        
         if let name = touchedNode.name {
             if name == LocalStrings.pastaString {
                 return
             }
             if name == LocalStrings.jarString+"\(theWinner)" {
-                win()
+                win(name: name)
             }else if name == LocalStrings.closeString {
                 GameScene.parentVC?.dismiss(animated: true, completion: nil)
             }else {
-                lose()
+                lose(name: name)
             }
         }
     }
