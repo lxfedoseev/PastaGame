@@ -69,6 +69,8 @@ class GameScene: SKScene {
             let jarNode = childNode(withName: LocalStrings.jarString+"\(i)") as! JarNode
             let jarLabel = jarNode.childNode(withName: LocalStrings.labelString+"\(i)") as! SKLabelNode
             jarLabel.text = jars[i].name
+            jarLabel.alpha = 0.0
+            jarLabel.run(SKAction.fadeIn(withDuration: 0.5))
             
             // adapt for phones with notches
             if UIDevice.current.hasNotch &&  UIDevice.current.userInterfaceIdiom == .phone {
