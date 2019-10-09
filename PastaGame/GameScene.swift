@@ -118,6 +118,14 @@ class GameScene: SKScene {
         
     }
     
+    func generateJarDict(number: Int) -> [String:String] {
+        var myDict = [String:String]()
+        for i in 0...number-1{
+            myDict[LocalStrings.labelString+"\(i)"] = LocalStrings.jarString+"\(i)"
+        }
+        return myDict
+    }
+
     func newGame() {
         view!.presentScene(GameScene.level())
     }
@@ -130,10 +138,19 @@ class GameScene: SKScene {
     func lose(name: String) {
         print("lose")
         
-        //if label tapped???
+        var jarName: String
+        if name.starts(with:LocalStrings.labelString){
+            let dict = generateJarDict(number: jarNumber)
+            if let jar = dict[name]{
+                jarName = jar
+            }else{
+                return
+            }
+        }else{
+            jarName = name
+        }
 
-
-        let jarNode = childNode(withName: name) as! SKSpriteNode
+        let jarNode = childNode(withName: jarName) as! SKSpriteNode
 
         let colorRed = SKAction.colorize(with: SKColor.red, colorBlendFactor: 1.0, duration: 0.1)
         let restoreColor = SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.1)
@@ -160,7 +177,8 @@ class GameScene: SKScene {
             if name == LocalStrings.pastaString {
                 return
             }
-            if name == LocalStrings.jarString+"\(theWinner)" {
+            if name == LocalStrings.jarString+"\(theWinner)" ||
+                name == LocalStrings.labelString+"\(theWinner)" {
                 win(name: name)
             }else if name == LocalStrings.closeString {
                 GameScene.parentVC?.dismiss(animated: true, completion: nil)
