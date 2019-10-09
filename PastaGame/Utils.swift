@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import CoreGraphics
+
+let π = CGFloat.pi
 
 func generateRandomArray<T>(from theArray: [T], count: Int) -> [T]? {
 

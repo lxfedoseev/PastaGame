@@ -84,6 +84,12 @@ class GameScene: SKScene {
         let newImage = SKTexture(imageNamed: jars[theWinner].onePasta)
         pastaNode.texture = newImage
         pastaNode.size = newImage.size()
+        pastaNode.setScale(0.1)
+        let scaleBig = SKAction.scale(to: 2.0, duration: 0.25)
+        let scaleNormal = SKAction.scale(to: 1.0, duration: 0.25)
+        let scale = SKAction.sequence([scaleBig, scaleNormal])
+        let rotate = SKAction.rotate(byAngle: π*2, duration: 0.5)
+        pastaNode.run(SKAction.group([scale, rotate]))
         
         let closeNode = childNode(withName: LocalStrings.closeString) as! SKSpriteNode
         
@@ -132,22 +138,27 @@ class GameScene: SKScene {
     
     func win(name: String){
         print("win")
-        newGame()
+        
+        let possibleName = getJarName(name: name)
+        guard let jarName = possibleName else {
+            return
+        }
+        
+        let jarNode = childNode(withName: jarName) as! SKSpriteNode
+        let movePasta = SKAction.move(to: jarNode.position, duration: 0.5)
+        let scalePasta = SKAction.scale(to: 0.5, duration: 0.5)
+        let rotatePasta = SKAction.rotate(byAngle: π*2, duration: 0.5)
+        pastaNode.run(SKAction.group([movePasta, scalePasta, rotatePasta]))
+        
+        run(SKAction.afterDelay(0.6, runBlock: newGame))
     }
     
     func lose(name: String) {
         print("lose")
         
-        var jarName: String
-        if name.starts(with:LocalStrings.labelString){
-            let dict = generateJarDict(number: jarNumber)
-            if let jar = dict[name]{
-                jarName = jar
-            }else{
-                return
-            }
-        }else{
-            jarName = name
+        let possibleName = getJarName(name: name)
+        guard let jarName = possibleName else {
+            return
         }
 
         let jarNode = childNode(withName: jarName) as! SKSpriteNode
@@ -164,6 +175,22 @@ class GameScene: SKScene {
         let wrongJar = SKAction.group([colorize, vibraite])
 
         jarNode.run(wrongJar)
+    }
+    
+    func getJarName(name: String) -> String? {
+        
+        var jarName: String
+        if name.starts(with:LocalStrings.labelString){
+            let dict = generateJarDict(number: jarNumber)
+            if let jar = dict[name]{
+                jarName = jar
+            }else{
+                return nil
+            }
+        }else{
+            jarName = name
+        }
+        return jarName
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
