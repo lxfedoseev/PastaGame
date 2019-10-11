@@ -18,11 +18,7 @@ func generateRandomArray<T>(from theArray: [T], count: Int) -> [T]? {
     }
 
     var rndArray = [T]()
-    var indexArray = [Int]()
-
-    for i in 0...theArray.count-1 {
-        indexArray.append(i)
-    }
+    var indexArray = Array(0...theArray.count-1)
 
     for _ in 0...count-1 {
         let index = Int.random(in: 0...indexArray.count-1)

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D92A536F23450D4800D5DAD7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A536E23450D4800D5DAD7 /* Utils.swift */; };
 		D92A53712345141500D5DAD7 /* PastaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A53702345141500D5DAD7 /* PastaType.swift */; };
+		D94BEB222350F3EF0076E8D9 /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94BEB212350F3EF0076E8D9 /* SKTAudio.swift */; };
+		D94BEB292350F71D0076E8D9 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = D94BEB282350F71D0076E8D9 /* win.wav */; };
+		D94BEB2B2350F7330076E8D9 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = D94BEB2A2350F7330076E8D9 /* lose.wav */; };
 		D958D1D92343C5B1003EFF00 /* JarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D958D1D82343C5B1003EFF00 /* JarNode.swift */; };
 		D95A6C30234E530600514FAE /* SKAction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95A6C2F234E530600514FAE /* SKAction+Extensions.swift */; };
 		D978EF2C23427BB4005032B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978EF2B23427BB4005032B7 /* AppDelegate.swift */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		D92A536E23450D4800D5DAD7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D92A53702345141500D5DAD7 /* PastaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastaType.swift; sourceTree = "<group>"; };
+		D94BEB212350F3EF0076E8D9 /* SKTAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTAudio.swift; sourceTree = "<group>"; };
+		D94BEB282350F71D0076E8D9 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
+		D94BEB2A2350F7330076E8D9 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		D958D1D82343C5B1003EFF00 /* JarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarNode.swift; sourceTree = "<group>"; };
 		D95A6C2F234E530600514FAE /* SKAction+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+Extensions.swift"; sourceTree = "<group>"; };
 		D978EF2823427BB4005032B7 /* PastaGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PastaGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D94BEB232350F4240076E8D9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D94BEB282350F71D0076E8D9 /* win.wav */,
+				D94BEB2A2350F7330076E8D9 /* lose.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		D978EF1F23427BB4005032B7 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +85,7 @@
 		D978EF2A23427BB4005032B7 /* PastaGame */ = {
 			isa = PBXGroup;
 			children = (
+				D94BEB232350F4240076E8D9 /* Sounds */,
 				D978EF2B23427BB4005032B7 /* AppDelegate.swift */,
 				D978EF2D23427BB4005032B7 /* SceneDelegate.swift */,
 				D978EF2F23427BB4005032B7 /* ViewController.swift */,
@@ -84,6 +100,7 @@
 				D92A53702345141500D5DAD7 /* PastaType.swift */,
 				D99D9EB2234A727900CBF890 /* UIDevice+Extensions.swift */,
 				D95A6C2F234E530600514FAE /* SKAction+Extensions.swift */,
+				D94BEB212350F3EF0076E8D9 /* SKTAudio.swift */,
 			);
 			path = PastaGame;
 			sourceTree = "<group>";
@@ -149,6 +166,8 @@
 				D978EF3523427BB5005032B7 /* Assets.xcassets in Resources */,
 				D978EF42234285FB005032B7 /* GameScene.sks in Resources */,
 				D978EF3323427BB4005032B7 /* Main.storyboard in Resources */,
+				D94BEB292350F71D0076E8D9 /* win.wav in Resources */,
+				D94BEB2B2350F7330076E8D9 /* lose.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +183,7 @@
 				D978EF4023428030005032B7 /* GameViewController.swift in Sources */,
 				D978EF3023427BB4005032B7 /* ViewController.swift in Sources */,
 				D92A536F23450D4800D5DAD7 /* Utils.swift in Sources */,
+				D94BEB222350F3EF0076E8D9 /* SKTAudio.swift in Sources */,
 				D978EF2C23427BB4005032B7 /* AppDelegate.swift in Sources */,
 				D99D9EB3234A727900CBF890 /* UIDevice+Extensions.swift in Sources */,
 				D92A53712345141500D5DAD7 /* PastaType.swift in Sources */,
@@ -307,6 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D23U6XAWC;
 				INFOPLIST_FILE = PastaGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,6 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D23U6XAWC;
 				INFOPLIST_FILE = PastaGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

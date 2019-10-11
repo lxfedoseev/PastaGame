@@ -151,6 +151,7 @@ class GameScene: SKScene {
         let scalePasta = SKAction.scale(to: 0.5, duration: 0.5)
         let rotatePasta = SKAction.rotate(byAngle: π*2, duration: 0.5)
         pastaNode.run(SKAction.group([movePasta, scalePasta, rotatePasta]))
+        SKTAudio.sharedInstance().playSoundEffect("win.wav")
         
         run(SKAction.afterDelay(0.6, runBlock: newGame))
     }
@@ -175,6 +176,7 @@ class GameScene: SKScene {
         let wait = SKAction.wait(forDuration: 0.1)
         let vibraite = SKAction.sequence([vibro, wait, vibro])
         let wrongJar = SKAction.group([colorize, vibraite])
+        SKTAudio.sharedInstance().playSoundEffect("lose.wav")
 
         jarNode.run(wrongJar)
     }

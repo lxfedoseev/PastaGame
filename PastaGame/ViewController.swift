@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     @IBAction func startButtonPressed(_ sender: UIButton) {
         if let gameViewController = storyboard?.instantiateViewController(identifier: "GameViewController") as? GameViewController {
-            //navigationController?.pushViewController(gameViewController, animated: true)
+        //navigationController?.pushViewController(gameViewController, animated: true)
             gameViewController.modalPresentationStyle = .fullScreen
             self.present(gameViewController, animated: true, completion: nil)
         }

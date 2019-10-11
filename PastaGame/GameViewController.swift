@@ -34,9 +34,7 @@ class GameViewController: UIViewController{
         return true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    fileprivate func runTheGame() {
         if let scene = GameScene.level() {
             
             gameScene = scene
@@ -49,15 +47,14 @@ class GameViewController: UIViewController{
             scene.scaleMode = .aspectFill
             
             skView.presentScene(scene)
-        
+            
         }
-        
-        
     }
     
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesEnded(touches, with: event)
-//        self.dismiss(animated: true, completion: nil)
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        runTheGame()
+    }
     
 }
